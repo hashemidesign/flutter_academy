@@ -1,7 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_academy/widgets/header.dart';
 
 import '../res/assets.dart';
+import '../res/responsive.dart';
 import '../widgets/call_to_action.dart';
 import '../widgets/course_card.dart';
 import '../widgets/featured_section.dart';
@@ -13,11 +15,80 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MediaQuery.of(context).size.width > ScreenSizes.md
+          ? null
+          : Drawer(
+              child: ListView(
+                children: [
+                  Container(
+                    color: Theme.of(context).primaryColor,
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(
+                      "Flutter Academy",
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline6
+                          ?.copyWith(color: Colors.white),
+                    ),
+                  ),
+                  ListTile(
+                    onTap: () {},
+                    title: const Text("Home"),
+                  ),
+                  ListTile(
+                    onTap: () {},
+                    title: const Text("Courses"),
+                  ),
+                  ListTile(
+                    onTap: () {},
+                    title: const Text("About"),
+                  ),
+                  ListTile(
+                    onTap: () {},
+                    title: const Text("Contact"),
+                  ),
+                ],
+              ),
+            ),
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: [
           AppBar(
             title: const Text("Flutter Academy"),
+            elevation: kIsWeb ? 0 : null,
+            centerTitle: kIsWeb ? false : null,
+            actions: (MediaQuery.of(context).size.width <= ScreenSizes.md)
+                ? null
+                : [
+                    TextButton(
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                        primary: Colors.white,
+                      ),
+                      child: const Text("Home"),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                        primary: Colors.white,
+                      ),
+                      child: const Text("Courses"),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                        primary: Colors.white,
+                      ),
+                      child: const Text("About"),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                        primary: Colors.white,
+                      ),
+                      child: const Text("Contact"),
+                    ),
+                  ],
           ),
           const Header(),
           const SizedBox(height: 40.0),
@@ -38,7 +109,7 @@ class HomePage extends StatelessWidget {
                   title: "Taking Flutter to Web",
                   image: Assets.course,
                   description:
-                  "Flutter web is stable. But there are no proper course focused on Flutter web. So, In this course we will learn what Flutter web is good for and we will build a production grade application along the way.",
+                      "Flutter web is stable. But there are no proper course focused on Flutter web. So, In this course we will learn what Flutter web is good for and we will build a production grade application along the way.",
                   onActionPressed: () {},
                 ),
                 const SizedBox(width: 20.0),
@@ -46,7 +117,7 @@ class HomePage extends StatelessWidget {
                   title: "Taking Flutter to Web",
                   image: Assets.course,
                   description:
-                  "Flutter web is stable. But there are no proper course focused on Flutter web. So, In this course we will learn what Flutter web is good for and we will build a production grade application along the way.",
+                      "Flutter web is stable. But there are no proper course focused on Flutter web. So, In this course we will learn what Flutter web is good for and we will build a production grade application along the way.",
                   onActionPressed: () {},
                 ),
               ],
@@ -57,7 +128,7 @@ class HomePage extends StatelessWidget {
               image: Assets.instructor,
               title: "Start teaching today",
               description:
-              "Instructors from around the world teach millions of students on Udemy. We provide the tools and skills to teach what you love.",
+                  "Instructors from around the world teach millions of students on Udemy. We provide the tools and skills to teach what you love.",
               buttonLabel: "Become an instructor",
               onActionPressed: () {},
             ),
@@ -68,7 +139,7 @@ class HomePage extends StatelessWidget {
               image: Assets.instructor,
               title: "Transform your life through education",
               description:
-              "Education changes your life beyond your imagination. Education enables you to achieve your dreams.",
+                  "Education changes your life beyond your imagination. Education enables you to achieve your dreams.",
               buttonLabel: "Start learning",
               onActionPressed: () {},
             ),
@@ -80,7 +151,7 @@ class HomePage extends StatelessWidget {
               image: Assets.instructor,
               title: "Know your instructors",
               description:
-              "Know your instructors. We have chosen the best of them to give you highest quality courses.",
+                  "Know your instructors. We have chosen the best of them to give you highest quality courses.",
               buttonLabel: "Browse",
               onActionPressed: () {},
             ),

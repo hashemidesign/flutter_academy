@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_academy/res/responsive.dart';
 
 class CallToAction extends StatelessWidget {
   const CallToAction({Key? key}) : super(key: key);
@@ -20,7 +21,9 @@ class CallToAction extends StatelessWidget {
           const SizedBox(height: 20.0),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              fixedSize: Size(180, 70),
+              fixedSize: MediaQuery.of(context).size.width > ScreenSizes.md
+                  ? const Size(180, 50)
+                  : const Size(180, 60),
             ),
             onPressed: () {
               print("register");
