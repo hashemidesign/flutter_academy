@@ -15,13 +15,13 @@ class Footer extends StatelessWidget {
         children: [
           const SizedBox(height: 20.0),
           Flex(
-            direction: width.getAxis(),
+            direction: getAxis(width),
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if(width > ScreenSizes.md) const SizedBox(width: 20.0),
+              if (width > ScreenSizes.md) const SizedBox(width: 20.0),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   FooterLink("Home"),
                   FooterLink("About"),
                   FooterLink("Download Apps"),
@@ -31,7 +31,7 @@ class Footer extends StatelessWidget {
               if (width > ScreenSizes.md) const Spacer(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   FooterLink("Blog"),
                   FooterLink("Help and Support"),
                   FooterLink("Join Us"),
@@ -40,20 +40,21 @@ class Footer extends StatelessWidget {
               if (width > ScreenSizes.md) const Spacer(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   FooterLink("Terms"),
                   FooterLink("Privacy Policy"),
                 ],
               ),
+              if (width > ScreenSizes.md) const SizedBox(width: 20.0)
             ],
           ),
-          const SizedBox(height: 10.0),
+          const SizedBox(height: 20.0),
           Flex(
-            direction: width.getAxis(),
+            direction: getAxis(width),
             children: [
               Padding(
                 padding: width > ScreenSizes.md
-                    ? const EdgeInsets.only(left: 20.0)
+                    ? const EdgeInsets.only(left: 30.0)
                     : const EdgeInsets.all(0),
                 child: Text(
                   "Flutter Academy",
@@ -62,7 +63,9 @@ class Footer extends StatelessWidget {
                       ),
                 ),
               ),
-              width > ScreenSizes.md ? Spacer() : const SizedBox(height: 10.0),
+              width > ScreenSizes.md
+                  ? const Spacer()
+                  : const SizedBox(height: 10),
               Padding(
                 padding: width > ScreenSizes.md
                     ? const EdgeInsets.only(right: 30.0)
@@ -77,7 +80,7 @@ class Footer extends StatelessWidget {
               ),
             ],
           ),
-          // const SizedBox(height: 30.0),
+          const SizedBox(height: 30.0),
         ],
       ),
     );
