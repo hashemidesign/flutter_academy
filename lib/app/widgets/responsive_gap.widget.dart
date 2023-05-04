@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_academy/res/responsive.dart';
+
+import '../res/responsive.res.dart';
 
 class ResponsiveGap extends StatelessWidget {
   const ResponsiveGap({

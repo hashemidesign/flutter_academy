@@ -1,13 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_academy/pages/about_page.dart';
-import 'package:flutter_academy/pages/contact_page.dart';
-import 'package:flutter_academy/pages/course_details_page.dart';
-import 'package:flutter_academy/pages/courses_page.dart';
-import 'package:flutter_academy/pages/error_404_page.dart';
-import 'package:flutter_academy/pages/home_page.dart';
-import 'package:flutter_academy/routes/app_route_parser.dart';
-import 'package:flutter_academy/routes/router_delegate.dart';
+
+import 'app/routes/app_route_parser.router.dart';
+import 'app/routes/router_delegate.router.dart';
 
 void main() {
   runApp(MyApp());

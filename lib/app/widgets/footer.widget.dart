@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_academy/res/responsive.dart';
+
+import '../res/responsive.res.dart';
 
 class Footer extends StatelessWidget {
   const Footer({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class Footer extends StatelessWidget {
               if (width > ScreenSizes.md) const SizedBox(width: 20.0),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: const [
                   FooterLink("Home"),
                   FooterLink("About"),
                   FooterLink("Download Apps"),
@@ -31,7 +32,7 @@ class Footer extends StatelessWidget {
               if (width > ScreenSizes.md) const Spacer(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: const [
                   FooterLink("Blog"),
                   FooterLink("Help and Support"),
                   FooterLink("Join Us"),
@@ -40,7 +41,7 @@ class Footer extends StatelessWidget {
               if (width > ScreenSizes.md) const Spacer(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: const [
                   FooterLink("Terms"),
                   FooterLink("Privacy Policy"),
                 ],
@@ -90,6 +91,7 @@ class Footer extends StatelessWidget {
 class FooterLink extends StatelessWidget {
   const FooterLink(this.text, {Key? key}) : super(key: key);
   final String text;
+
   @override
   Widget build(BuildContext context) {
     return Padding(

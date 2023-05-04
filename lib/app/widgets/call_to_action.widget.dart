@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_academy/res/responsive.dart';
+
+import '../res/responsive.res.dart';
 
 class CallToAction extends StatelessWidget {
   const CallToAction({Key? key}) : super(key: key);

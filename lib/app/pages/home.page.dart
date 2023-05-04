@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_academy/res/assets.dart';
-import 'package:flutter_academy/res/responsive.dart';
-import 'package:flutter_academy/widgets/call_to_action.dart';
-import 'package:flutter_academy/widgets/course_card.dart';
-import 'package:flutter_academy/widgets/drawer_nav.dart';
-import 'package:flutter_academy/widgets/featured_section.dart';
-import 'package:flutter_academy/widgets/footer.dart';
-import 'package:flutter_academy/widgets/header.dart';
-import 'package:flutter_academy/widgets/top_nav.dart';
+
+import '../res/assets.res.dart';
+import '../res/responsive.res.dart';
+import '../widgets/call_to_action.widget.dart';
+import '../widgets/course_card.widget.dart';
+import '../widgets/drawer_nav.widget.dart';
+import '../widgets/featured_section.widget.dart';
+import '../widgets/footer.widget.dart';
+import '../widgets/header.widget.dart';
+import '../widgets/top_nav.widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_academy/res/responsive.dart';
-import 'package:flutter_academy/widgets/drawer_nav.dart';
-import 'package:flutter_academy/widgets/top_nav.dart';
 
-class CoursesPage extends StatelessWidget {
-  const CoursesPage({Key? key}) : super(key: key);
+import '../res/responsive.res.dart';
+import '../widgets/drawer_nav.widget.dart';
+import '../widgets/top_nav.widget.dart';
+
+class AboutPage extends StatelessWidget {
+  const AboutPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,6 +13,10 @@ class CoursesPage extends StatelessWidget {
       body: ListView(
         children: const <Widget>[
           TopNav(),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text("About Page"),
+          )
         ],
       ),
       drawer: MediaQuery.of(context).size.width > ScreenSizes.md

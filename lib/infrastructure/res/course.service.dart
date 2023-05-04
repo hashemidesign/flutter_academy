@@ -1,6 +1,8 @@
 import 'dart:convert';
+
 import 'package:flutter/services.dart';
-import 'package:flutter_academy/model/course.dart';
+
+import '../model/course.model.dart';
 
 Future<List<Course>> getCourses() async {
   final courses = rootBundle.loadStructuredData<List<Course>>(
