@@ -1,8 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_academy/main.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../res/responsive.res.dart';
+import '../view_models/theme_mode.vm.dart';
 
 class TopNav extends StatelessWidget {
   const TopNav({Key? key}) : super(key: key);
@@ -44,6 +46,20 @@ class TopNav extends StatelessWidget {
                 ),
                 child: const Text("Contact"),
               ),
+              Consumer(builder: (context, ref, child) {
+                final themeModeVM = ref.watch(themeModeProvider);
+                return TextButton(
+                  onPressed: () {
+                    themeModeVM.toggleThemeMode();
+                  },
+                  style: TextButton.styleFrom(
+                    primary: Colors.white,
+                  ),
+                  child: Text(themeModeVM.themeMode == ThemeMode.dark
+                      ? "Light Theme"
+                      : "Dark Theme"),
+                );
+              }),
             ],
     );
   }
