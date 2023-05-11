@@ -11,16 +11,35 @@ class AuthVM extends ChangeNotifier {
   UserVM? user;
   final Account account = Account(AppWriteService.instance.client);
 
-  bool login({required String email, required String password}) {
-    if (email == 'test@email.com' && password == 'testpass') {
-      error = '';
-      user = UserVM(email: 'test@email.com', name: 'Test User', id: 'xyz');
+  Future<bool> login({required String email, required String password}) async {
+    try {
+      await account.createEmailSession(email: email, password: password);
+      final apUser = await account.get();
+      user = UserVM(email: apUser.email, name: apUser.name, id: apUser.$id);
       isLoggedIn = true;
       notifyListeners();
       return true;
+    } on AppwriteException catch (e) {
+      error = e.message ?? e.toString();
+      notifyListeners();
+      return false;
     }
-    error = 'Invalid credentials';
-    return false;
+  }
+
+  Future<bool> register(
+      {required String name,
+      required String email,
+      required String password}) async {
+    try {
+      await account.create(
+          userId: 'unique()', name: name, email: email, password: password);
+      await login(email: email, password: password);
+      return true;
+    } on AppwriteException catch (e) {
+      error = e.message ?? e.toString();
+      notifyListeners();
+      return false;
+    }
   }
 
   bool logout() {

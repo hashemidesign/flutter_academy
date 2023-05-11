@@ -6,7 +6,7 @@ class AppWriteService {
 
   AppWriteService() : client = Client() {
     client
-        .setEndpoint("http://localhost/v1")
+        .setEndpoint("http://10.0.2.2/v1")
         .setProject("645b1c1ece7d6d5b665a");
   }
 }
