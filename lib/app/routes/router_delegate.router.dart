@@ -12,6 +12,7 @@ import '../pages/dashboard.page.dart';
 import '../pages/error_404.page.dart';
 import '../pages/home.page.dart';
 import '../pages/login.page.dart';
+import '../pages/watchlist.page.dart';
 
 class AppRouterDelegate extends RouterDelegate<Uri>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<Uri> {
@@ -62,7 +63,7 @@ class AppRouterDelegate extends RouterDelegate<Uri>
     if (authVM.isLoggedIn) {
       pages.add(MaterialPage(child: DashboardPage(), key: ValueKey('home')));
     } else {
-      pages.add(MaterialPage(child: HomePage(), key: ValueKey('home')));
+      pages.add(const MaterialPage(child: HomePage(), key: ValueKey('home')));
     }
 
     if (path.pathSegments.length == 0) {
@@ -71,20 +72,26 @@ class AppRouterDelegate extends RouterDelegate<Uri>
     switch (path.pathSegments[0]) {
       case 'contacts':
         pages.add(MaterialPage(
-          key: ValueKey('contacts'),
+          key: const ValueKey('contacts'),
           child: ContactPage(),
         ));
         break;
       case 'about':
-        pages.add(MaterialPage(
+        pages.add(const MaterialPage(
           key: ValueKey('about'),
           child: AboutPage(),
         ));
         break;
       case 'courses':
-        pages.add(MaterialPage(
+        pages.add(const MaterialPage(
           key: ValueKey('courses'),
           child: CoursesPage(),
+        ));
+        break;
+      case 'watchlist':
+        pages.add(MaterialPage(
+          child: WatchlistPage(),
+          key: const ValueKey('watchlist'),
         ));
         break;
       case 'login':
@@ -93,7 +100,7 @@ class AppRouterDelegate extends RouterDelegate<Uri>
           break;
         }
         pages.add(MaterialPage(
-          key: ValueKey('login'),
+          key: const ValueKey('login'),
           child: LoginPage(),
         ));
         break;

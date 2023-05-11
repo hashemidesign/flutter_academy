@@ -4,9 +4,7 @@ import '../../infrastructure/res/course.service.dart';
 import 'course.vm.dart';
 
 class CourseListVM extends StateNotifier<List<CourseVM>> {
-  final CourseService service;
-
-  CourseListVM(this.service) : super(const []) {
+  CourseListVM() : super(const []) {
     fetchCourses();
   }
 
@@ -17,4 +15,4 @@ class CourseListVM extends StateNotifier<List<CourseVM>> {
 }
 
 final courseListVM = StateNotifierProvider<CourseListVM, List<CourseVM>>(
-    (ref) => CourseListVM(CourseService()));
+    (ref) => CourseListVM());

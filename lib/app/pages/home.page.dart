@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../res/assets.res.dart';
 import '../res/responsive.res.dart';
+import '../views/courses.view.dart';
 import '../widgets/call_to_action.widget.dart';
-import '../widgets/course_card.widget.dart';
 import '../widgets/drawer_nav.widget.dart';
 import '../widgets/featured_section.widget.dart';
 import '../widgets/footer.widget.dart';
@@ -27,33 +27,9 @@ class HomePage extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline3),
           ),
           const SizedBox(height: 10.0),
-          SizedBox(
-            height: 450,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                const SizedBox(width: 20.0),
-                CourseCard(
-                  title: "Taking Flutter to Web",
-                  image: Assets.course,
-                  description:
-                      "Flutter web is stable. But there are no proper course focused on Flutter web. So, In this course we will learn what Flutter web is good for and we will build a production grade application along the way.",
-                  onActionPressed: () {
-                    // routerDelegate.go('/courses/taking-flutter-to-web');
-                  },
-                ),
-                const SizedBox(width: 20.0),
-                CourseCard(
-                  title: "Taking Flutter to Web",
-                  image: Assets.course,
-                  description:
-                      "Flutter web is stable. But there are no proper course focused on Flutter web. So, In this course we will learn what Flutter web is good for and we will build a production grade application along the way.",
-                  onActionPressed: () {
-                    // routerDelegate.go('/courses/taking-flutter-to-web-2');
-                  },
-                ),
-              ],
-            ),
+          Container(
+            height: 520,
+            child: const CoursesView(),
           ),
           // Featured section
           Center(
@@ -77,7 +53,7 @@ class HomePage extends StatelessWidget {
               onActionPressed: () {},
             ),
           ),
-          const CallToAction(),
+          CallToAction(),
           Center(
             child: FeaturedSection(
               imageLeft: false,
@@ -90,12 +66,12 @@ class HomePage extends StatelessWidget {
             ),
           ),
           //footer
-          const Footer(),
+          Footer(),
         ],
       ),
       drawer: MediaQuery.of(context).size.width > ScreenSizes.md
           ? null
-          : const DrawerNav(),
+          : DrawerNav(),
     );
   }
 }
